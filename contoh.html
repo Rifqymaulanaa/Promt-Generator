@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tawasin - Natural Deodorant Spray</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-green: #2d5a4a;
+            --secondary-green: #4a7c5f;
+            --light-green: #8ab17d;
+            --cream: #f5f5f0;
+            --text-dark: #2c2c2c;
+            --text-light: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.15);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        .dark-mode {
+            --primary-green: #1e3a2f;
+            --secondary-green: #2d5a4a;
+            --light-green: #4a7c5f;
+            --cream: #1a1a1a;
+            --text-dark: #f0f0f0;
+            --text-light: #ffffff;
+            --glass-bg: rgba(0, 0, 0, 0.2);
+            --glass-border: rgba(255, 255, 255, 0.1);
+            --shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--cream);
+            color: var(--text-dark);
+            transition: var(--transition);
+            overflow-x: hidden;
+        }
+
+        section {
+            min-height: 100vh;
+            padding: 5rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 20px;
+            border: 1px solid var(--glass-border);
+            box-shadow: var(--shadow);
+            padding: 2rem;
+            transition: var(--transition);
+        }
+
+        h1, h2, h3 {
+            color: var(--primary-green);
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+        }
+
+        p {
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 0.8rem 1.8rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(45, 90, 74, 0.3);
+        }
+
+        .btn:hover {
+            background-color: var(--secondary-green);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(45, 90, 74, 0.4);
+        }
+
+        .btn-light {
+            background-color: transparent;
+            border: 2px solid var(--primary-green);
+            color: var(--primary-green);
+        }
+
+        .btn-light:hover {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+        }
+
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            padding: 1.5rem 2rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo i {
+            margin-right: 0.5rem;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 2rem;
+        }
+
+        nav ul li a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            transition: var(--transition);
+            position: relative;
+        }
+
+        nav ul li a:hover {
+            color: var(--primary-green);
+        }
+
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-green);
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary-green);
+            cursor: pointer;
+        }
+
+        .theme-toggle {
+            background: none;
+            border: none;
+            font-size: 1.3rem;
+            color: var(--primary-green);
+            cursor: pointer;
+            margin-left: 1.5rem;
+            transition: var(--transition);
+        }
+
+        .theme-toggle:hover {
+            transform: rotate(30deg);
+        }
+
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+            color: var(--text-light);
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        #hero h1 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+        }
+
+        #hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 2.5rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .hero-image {
+            max-width: 300px;
+            margin: 2rem auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+            transition: var(--transition);
+        }
+
+        .hero-image:hover {
+            transform: translateY(-10px);
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* About Section */
+        #about {
+            background-color: var(--cream);
+        }
+
+        .about-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .about-image:hover {
+            transform: scale(1.02);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Benefits Section */
+        #benefits {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+            color: var(--text-light);
+        }
+
+        #benefits h2 {
+            color: var(--text-light);
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .benefit-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid var(--glass-border);
+        }
+
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .benefit-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-light);
+        }
+
+        .benefit-card h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Ingredients Section */
+        #ingredients .container {
+            text-align: center;
+        }
+
+        .ingredients-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .ingredient-item {
+            padding: 1.5rem;
+            border-radius: 15px;
+            background-color: var(--cream);
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .ingredient-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .ingredient-icon {
+            font-size: 2rem;
+            color: var(--primary-green);
+            margin-bottom: 1rem;
+        }
+
+        /* How to Use Section */
+        #how-to-use {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+            color: var(--text-light);
+        }
+
+        #how-to-use h2 {
+            color: var(--text-light);
+        }
+
+        .steps-container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 2rem;
+            margin: 1rem;
+        }
+
+        .step-number {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background-color: var(--text-light);
+            color: var(--primary-green);
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin: 0 auto 1.5rem;
+        }
+
+        .step h3 {
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        /* Testimonials Section */
+        .testimonials-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            position: relative;
+        }
+
+        .testimonial {
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+        }
+
+        .testimonial:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .testimonial-text {
+            font-style: italic;
+            margin-bottom: 1.5rem;
+        }
+
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+        }
+
+        .author-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .author-avatar img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .author-info h4 {
+            margin-bottom: 0.2rem;
+        }
+
+        .author-info p {
+            margin-bottom: 0;
+            font-size: 0.9rem;
+            color: var(--secondary-green);
+        }
+
+        /* FAQ Section */
+        #faq {
+            background: linear-gradient(135deg, var(--light-green) 0%, var(--primary-green) 100%);
+            color: var(--text-light);
+        }
+
+        #faq h2 {
+            color: var(--text-light);
+        }
+
+        .faq-container {
+            max-width: 800px;
+            margin: 3rem auto 0;
+        }
+
+        .faq-item {
+            margin-bottom: 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backup-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq-answer p {
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+        }
+
+        .faq-toggle {
+            transition: var(--transition);
+        }
+
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+
+        /* Purchase Section */
+        #purchase {
+            text-align: center;
+        }
+
+        .pricing-cards {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .pricing-card {
+            flex: 1;
+            min-width: 280px;
+            max-width: 350px;
+            padding: 2.5rem 2rem;
+            border-radius: 20px;
+            background: var(--glass-bg);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border: 1px solid var(--glass-border);
+            transition: var(--transition);
+            position: relative;
+        }
+
+        .pricing-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing-card.featured {
+            border: 2px solid var(--primary-green);
+            transform: scale(1.05);
+        }
+
+        .pricing-card.featured:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .popular-badge {
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 0.3rem 1.5rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            margin: 1.5rem 0;
+        }
+
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+        }
+
+        .pricing-features {
+            list-style: none;
+            margin: 2rem 0;
+            text-align: left;
+        }
+
+        .pricing-features li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .pricing-features li i {
+            color: var(--primary-green);
+            margin-right: 0.8rem;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary-green);
+            color: var(--text-light);
+            padding: 4rem 2rem 2rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 3rem;
+        }
+
+        .footer-col h3 {
+            color: var(--text-light);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        .footer-col ul {
+            list-style: none;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-light);
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--light-green);
+            padding-left: 5px;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1.5rem;
+        }
+
+        .social-links a {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--text-light);
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--light-green);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.8rem;
+            }
+            
+            h2 {
+                font-size: 2.2rem;
+            }
+            
+            .about-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-toggle {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: var(--glass-bg);
+                backdrop-filter: blur(10px);
+                -webkit-backdrop-filter: blur(10px);
+                flex-direction: column;
+                align-items: center;
+                padding: 2rem 0;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+                transition: var(--transition);
+                border-bottom: 1px solid var(--glass-border);
+            }
+            
+            nav ul.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+            }
+            
+            nav ul li {
+                margin: 1rem 0;
+            }
+            
+            .pricing-card.featured {
+                transform: scale(1);
+            }
+            
+            .pricing-card.featured:hover {
+                transform: translateY(-10px);
+            }
+        }
+
+        @media (max-width: 576px) {
+            section {
+                padding: 4rem 1rem;
+            }
+            
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .glass-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header & Navigation -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo"><i class="fas fa-leaf"></i> Tawasin</a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul id="navMenu">
+                    <li><a href="#hero">Beranda</a></li>
+                    <li><a href="#about">Tentang</a></li>
+                    <li><a href="#benefits">Manfaat</a></li>
+                    <li><a href="#ingredients">Bahan</a></li>
+                    <li><a href="#how-to-use">Cara Pakai</a></li>
+                    <li><a href="#testimonials">Testimoni</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#purchase">Beli</a></li>
+                    <li>
+                        <button class="theme-toggle" id="themeToggle">
+                            <i class="fas fa-moon"></i>
+                        </button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <div class="hero-content reveal">
+                <h1>Deodoran Alami untuk Kesehatan Kulit Anda</h1>
+                <p>Tawasin adalah deodoran spray alami yang diformulasikan khusus dengan bahan-bahan organik untuk memberikan perlindungan maksimal tanpa mengganggu kesehatan kulit.</p>
+                <a href="#purchase" class="btn">Beli Sekarang</a>
+                <div class="hero-image">
+                    <img src="https://images.unsplash.com/photo-1594736797933-d0e6e4f6f5e5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Tawasin Natural Deodorant">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-container">
+                <div class="about-content glass-card reveal">
+                    <h2>Tentang Tawasin</h2>
+                    <p>Tawasin lahir dari keinginan untuk memberikan alternatif deodoran yang aman, alami, dan efektif. Dibuat dengan bahan-bahan pilihan dari alam yang telah teruji khasiatnya.</p>
+                    <p>Kami percaya bahwa perawatan tubuh sehari-hari seharusnya tidak mengorbankan kesehatan kulit. Itulah mengapa Tawasin bebas dari aluminium, paraben, alkohol, dan bahan kimia berbahaya lainnya.</p>
+                    <p>Dengan formula khusus yang dikembangkan oleh ahli herbal, Tawasin tidak hanya mengatasi bau badan tetapi juga merawat kesehatan kulit ketiak Anda.</p>
+                    <a href="#ingredients" class="btn btn-light">Lihat Bahan</a>
+                </div>
+                <div class="about-image reveal">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80" alt="Bahan Alami Tawasin">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits">
+        <div class="container">
+            <h2 class="reveal">Manfaat Tawasin</h2>
+            <div class="benefits-grid">
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>100% Alami</h3>
+                    <p>Terbuat dari bahan-bahan organik pilihan tanpa campuran bahan kimia berbahaya.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Perlindungan 24 Jam</h3>
+                    <p>Memberikan perlindungan maksimal sepanjang hari dari bau badan yang tidak sedap.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Ramah Kulit</h3>
+                    <p>Cocok untuk semua jenis kulit, bahkan kulit sensitif sekalipun.</p>
+                </div>
+                <div class="benefit-card reveal">
+                    <div class="benefit-icon">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3>Tekstur Ringan</h3>
+                    <p>Tekstur spray yang ringan tidak meninggalkan bekas putih pada pakaian.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ingredients Section -->
+    <section id="ingredients">
+        <div class="container">
+            <h2 class="reveal">Bahan-Bahan Alami</h2>
+            <p class="reveal">Tawasin dibuat dengan formulasi khusus dari bahan-bahan alami terpilih yang memberikan manfaat optimal untuk kesehatan kulit ketiak Anda.</p>
+            <div class="ingredients-list">
+                <div class="ingredient-item reveal">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3>Tea Tree Oil</h3>
+                    <p>Membantu mengatasi bakteri penyebab bau badan dan menenangkan kulit.</p>
+                </div>
+                <div class="ingredient-item reveal">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-lemon"></i>
+                    </div>
+                    <h3>Ekstrak Lemon</h3>
+                    <p>Memberikan kesegaran alami dan membantu menyeimbangkan pH kulit.</p>
+                </div>
+                <div class="ingredient-item reveal">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-cube"></i>
+                    </div>
+                    <h3>Baking Soda</h3>
+                    <p>Menyerap kelembapan berlebih dan membantu mengurangi bau badan.</p>
+                </div>
+                <div class="ingredient-item reveal">
+                    <div class="ingredient-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3>Witch Hazel</h3>
+                    <p>Membantu mengecilkan pori-pori dan memiliki sifat antiseptik alami.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section id="how-to-use">
+        <div class="container">
+            <h2 class="reveal">Cara Penggunaan</h2>
+            <p class="reveal">Gunakan Tawasin dengan benar untuk mendapatkan hasil yang maksimal.</p>
+            <div class="steps-container">
+                <div class="step reveal">
+                    <div class="step-number">1</div>
+                    <h3>Bersihkan Area Ketiak</h3>
+                    <p>Pastikan area ketiak dalam keadaan bersih dan kering sebelum menggunakan Tawasin.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">2</div>
+                    <h3>Kocok Botol</h3>
+                    <p>Kocok botol Tawasin beberapa kali sebelum digunakan untuk mencampur kandungannya.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">3</div>
+                    <h3>Semprotkan</h3>
+                    <p>Semprotkan Tawasin pada ketiak dari jarak sekitar 15 cm, biarkan hingga kering.</p>
+                </div>
+                <div class="step reveal">
+                    <div class="step-number">4</div>
+                    <h3>Pakai Sehari-hari</h3>
+                    <p>Gunakan Tawasin setiap hari untuk perlindungan optimal sepanjang hari.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <div class="container">
+            <h2 class="reveal">Apa Kata Pelanggan Kami</h2>
+            <div class="testimonials-container">
+                <div class="testimonial glass-card reveal">
+                    <div class="testimonial-text">
+                        "Saya memiliki kulit sensitif dan selalu kesulitan mencari deodoran yang cocok. Sejak menggunakan Tawasin, kulit ketiak saya tidak lagi iritasi dan bau badan pun hilang sepanjang hari. Sangat recommended!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Sarah">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Wijaya</h4>
+                            <p>Guru, 32 tahun</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial glass-card reveal">
+                    <div class="testimonial-text">
+                        "Awalnya ragu karena harganya lebih mahal dari deodoran biasa, tapi ternyata worth it! Wanginya segar dan natural, tidak seperti deodoran kimia yang baunya menusuk. Sekarang seluruh keluarga saya pakai Tawasin."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80" alt="Budi">
+                        </div>
+                        <div class="author-info">
+                            <h4>Budi Santoso</h4>
+                            <p>Karyawan, 28 tahun</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+        <div class="container">
+            <h2 class="reveal">Pertanyaan yang Sering Diajukan</h2>
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Apakah Tawasin aman untuk kulit sensitif?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Ya, Tawasin sangat aman untuk kulit sensitif karena terbuat dari 100% bahan alami tanpa tambahan bahan kimia berbahaya seperti aluminium, paraben, atau alkohol yang dapat menyebabkan iritasi.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Berapa lama efek perlindungan Tawasin bertahan?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tawasin memberikan perlindungan hingga 24 jam. Namun, untuk aktivitas yang sangat berat atau cuaca panas ekstrem, kami menyarankan penggunaan ulang setelah 8-10 jam.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Apakah Tawasin meninggalkan noda pada pakaian?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Tidak, Tawasin memiliki formula khusus yang tidak meninggalkan noda atau bekas putih pada pakaian. Pastikan untuk mengaplikasikannya dalam jumlah yang tepat dan biarkan kering sempurna sebelum mengenakan pakaian.</p>
+                    </div>
+                </div>
+                <div class="faq-item reveal">
+                    <div class="faq-question">
+                        Bagaimana cara menyimpan Tawasin?
+                        <span class="faq-toggle"><i class="fas fa-chevron-down"></i></span>
+                    </div>
+                    <div class="faq-answer">
+                        <p>Simpan Tawasin di tempat yang sejuk dan kering, jauh dari paparan sinar matahari langsung. Jangan menyimpannya di kamar mandi karena kelembapan dapat mempengaruhi kualitas produk.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Purchase Section -->
+    <section id="purchase">
+        <div class="container">
+            <h2 class="reveal">Dapatkan Tawasin Sekarang</h2>
+            <p class="reveal">Pilih paket yang sesuai dengan kebutuhan Anda dan rasakan manfaat deodoran alami terbaik.</p>
+            <div class="pricing-cards">
+                <div class="pricing-card reveal">
+                    <h3>Paket Percobaan</h3>
+                    <div class="price">Rp 75.000<span>/botol</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 1 Botol Tawasin 100ml</li>
+                        <li><i class="fas fa-check"></i> Cukup untuk 1 bulan pemakaian</li>
+                        <li><i class="fas fa-check"></i> Gratis ongkir untuk pembelian pertama</li>
+                    </ul>
+                    <a href="#" class="btn">Pilih Paket</a>
+                </div>
+                <div class="pricing-card featured reveal">
+                    <div class="popular-badge">Paling Populer</div>
+                    <h3>Paket Hemat</h3>
+                    <div class="price">Rp 135.000<span>/2 botol</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 2 Botol Tawasin 100ml</li>
+                        <li><i class="fas fa-check"></i> Cukup untuk 2 bulan pemakaian</li>
+                        <li><i class="fas fa-check"></i> Gratis ongkir ke seluruh Indonesia</li>
+                        <li><i class="fas fa-check"></i> Diskon 10% dari harga normal</li>
+                    </ul>
+                    <a href="#" class="btn">Pilih Paket</a>
+                </div>
+                <div class="pricing-card reveal">
+                    <h3>Paket Keluarga</h3>
+                    <div class="price">Rp 250.000<span>/4 botol</span></div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 4 Botol Tawasin 100ml</li>
+                        <li><i class="fas fa-check"></i> Cukup untuk 4 bulan pemakaian</li>
+                        <li><i class="fas fa-check"></i> Gratis ongkir ke seluruh Indonesia</li>
+                        <li><i class="fas fa-check"></i> Diskon 17% dari harga normal</li>
+                        <li><i class="fas fa-check"></i> Gratis pouch eksklusif</li>
+                    </ul>
+                    <a href="#" class="btn">Pilih Paket</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>Tawasin</h3>
+                    <p>Deodoran alami untuk kesehatan kulit Anda. Terbuat dari 100% bahan alami tanpa bahan kimia berbahaya.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Produk</h3>
+                    <ul>
+                        <li><a href="#">Deodoran Spray</a></li>
+                        <li><a href="#">Deodoran Roll-On</a></li>
+                        <li><a href="#">Paket Travel</a></li>
+                        <li><a href="#">Paket Keluarga</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Bantuan</h3>
+                    <ul>
+                        <li><a href="#">Cara Pemesanan</a></li>
+                        <li><a href="#">Pengembalian</a></li>
+                        <li><a href="#">Kebijakan Privasi</a></li>
+                        <li><a href="#">Syarat & Ketentuan</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Kontak</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Jl. Hijau No. 123, Jakarta</li>
+                        <li><i class="fas fa-phone"></i> +62 812 3456 7890</li>
+                        <li><i class="fas fa-envelope"></i> hello@tawasin.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 Tawasin. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Dark Mode Toggle
+        const themeToggle = document.getElementById('themeToggle');
+        const themeIcon = themeToggle.querySelector('i');
+        
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            
+            if (document.body.classList.contains('dark-mode')) {
+                themeIcon.classList.remove('fa-moon');
+                themeIcon.classList.add('fa-sun');
+            } else {
+                themeIcon.classList.remove('fa-sun');
+                themeIcon.classList.add('fa-moon');
+            }
+        });
+
+        // Mobile Navigation Toggle
+        const navToggle = document.getElementById('navToggle');
+        const navMenu = document.getElementById('navMenu');
+        
+        navToggle.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            
+            if (navMenu.classList.contains('active')) {
+                navToggle.innerHTML = '<i class="fas fa-times"></i>';
+            } else {
+                navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            }
+        });
+
+        // FAQ Toggle
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            
+            question.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+
+        // Scroll Reveal Animation
+        const revealElements = document.querySelectorAll('.reveal');
+        
+        function checkReveal() {
+            const windowHeight = window.innerHeight;
+            const revealPoint = 150;
+            
+            revealElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        }
+        
+        window.addEventListener('scroll', checkReveal);
+        window.addEventListener('load', checkReveal);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (navMenu.classList.contains('active')) {
+                        navMenu.classList.remove('active');
+                        navToggle.innerHTML = '<i class="fas fa-bars"></i>';
+                    }
+                }
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+                if (document.body.classList.contains('dark-mode')) {
+                    header.style.background = 'rgba(30, 58, 47, 0.95)';
+                }
+            } else {
+                header.style.background = 'var(--glass-bg)';
+            }
+        });
+    </script>
+</body>
+</html>
