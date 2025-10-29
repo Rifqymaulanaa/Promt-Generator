@@ -138,6 +138,17 @@
         .gradient-bg {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         }
+        
+        .file-list {
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-top: 8px;
+            padding-left: 16px;
+        }
+        
+        .file-list li {
+            margin-bottom: 4px;
+        }
     </style>
 </head>
 <body class="min-h-screen py-8 px-4 md:py-12 md:px-8">
@@ -223,6 +234,10 @@
                                     </div>
                                     <h3 class="font-medium text-slate-800 mb-1">Dummy / AI</h3>
                                     <p class="text-xs text-slate-500">AI akan mencari gambar dari Unsplash/Pexels</p>
+                                    <ul class="file-list text-left">
+                                        <li>Tidak perlu file gambar</li>
+                                        <li>AI akan mencari otomatis</li>
+                                    </ul>
                                 </div>
                             </div>
                             
@@ -234,6 +249,16 @@
                                     </div>
                                     <h3 class="font-medium text-slate-800 mb-1">Produk/Jasa</h3>
                                     <p class="text-xs text-slate-500">Gambar produk atau layanan Anda</p>
+                                    <ul class="file-list text-left">
+                                        <li>favicon.png</li>
+                                        <li>logo.png</li>
+                                        <li>hero.jpg</li>
+                                        <li>product-1.jpg</li>
+                                        <li>product-2.jpg</li>
+                                        <li>product-3.jpg</li>
+                                        <li>service-1.jpg</li>
+                                        <li>about.jpg</li>
+                                    </ul>
                                 </div>
                             </div>
                             
@@ -245,6 +270,16 @@
                                     </div>
                                     <h3 class="font-medium text-slate-800 mb-1">Portofolio</h3>
                                     <p class="text-xs text-slate-500">Gambar karya atau portofolio Anda</p>
+                                    <ul class="file-list text-left">
+                                        <li>favicon.png</li>
+                                        <li>logo.png</li>
+                                        <li>hero.jpg</li>
+                                        <li>project-1.jpg</li>
+                                        <li>project-2.jpg</li>
+                                        <li>project-3.jpg</li>
+                                        <li>about.jpg</li>
+                                        <li>contact.jpg</li>
+                                    </ul>
                                 </div>
                             </div>
                         </div>
@@ -338,28 +373,52 @@
         const styleOptions = [
             {
                 name: "Minimalis Modern",
-                description: "Clean, banyak whitespace, tipografi elegan",
-                icon: "fas fa-minimize"
+                description: "Clean, banyak whitespace, tipografi elegan, fokus pada konten",
+                icon: "fas fa-minimize",
+                color: "text-blue-600",
+                bgColor: "bg-blue-100"
             },
             {
                 name: "Neobrutalism",
-                description: "Shadow tebal, warna kontras, bentuk berani",
-                icon: "fas fa-square"
+                description: "Shadow tebal, warna kontras tinggi, bentuk berani dan ekspresif",
+                icon: "fas fa-square",
+                color: "text-red-600",
+                bgColor: "bg-red-100"
             },
             {
                 name: "Glassmorphism",
-                description: "Efek blur transparan, seperti kaca",
-                icon: "fas fa-square-full"
+                description: "Efek blur transparan, seperti kaca, dengan backdrop modern",
+                icon: "fas fa-square-full",
+                color: "text-purple-600",
+                bgColor: "bg-purple-100"
             },
             {
-                name: "Retro Vintage",
-                description: "Font serif, palet earthy, tekstur klasik",
-                icon: "fas fa-history"
+                name: "Corporate Professional",
+                description: "Layout terstruktur, warna formal, tipografi serif untuk kesan tepercaya",
+                icon: "fas fa-building",
+                color: "text-indigo-600",
+                bgColor: "bg-indigo-100"
             },
             {
-                name: "Dark Mode Elegan",
-                description: "Dominan gelap, aksen cerah, kontras tinggi",
-                icon: "fas fa-moon"
+                name: "Creative Playful",
+                description: "Warna cerah, animasi dinamis, bentuk organik dan tidak simetris",
+                icon: "fas fa-palette",
+                color: "text-yellow-600",
+                bgColor: "bg-yellow-100"
+            },
+            {
+                name: "Dark Tech",
+                description: "Tema gelap, aksen neon, grid futuristik, cocok untuk teknologi",
+                icon: "fas fa-laptop-code",
+                color: "text-green-600",
+                bgColor: "bg-green-100"
+            },
+            {
+                name: "Elegant Luxury",
+                description: "Tipografi elegan, spacing luas, aksen emas, kesan premium",
+                icon: "fas fa-gem",
+                color: "text-amber-600",
+                bgColor: "bg-amber-100"
             }
         ];
 
@@ -419,7 +478,7 @@
                 
                 styleElement.innerHTML = `
                     <div class="flex items-start">
-                        <div class="w-10 h-10 rounded-lg bg-indigo-100 text-indigo-600 flex items-center justify-center mr-3 flex-shrink-0">
+                        <div class="w-10 h-10 rounded-lg ${style.bgColor} ${style.color} flex items-center justify-center mr-3 flex-shrink-0">
                             <i class="${style.icon}"></i>
                         </div>
                         <div class="flex-1">
@@ -576,8 +635,8 @@
                 detail_project.sumber_gambar = "dummy (AI akan cari di Unsplash/Pexels)";
             } else {
                 const contohStruktur = selectedImageSource === 'produk' 
-                    ? ["hero.jpg", "product-1.jpg", "product-2.jpg", "product-3.jpg", "about.jpg", "team.jpg"]
-                    : ["profile.jpg", "project-1.jpg", "project-2.jpg", "project-3.jpg", "skills.jpg", "contact.jpg"];
+                    ? ["favicon.png", "logo.png", "hero.jpg", "product-1.jpg", "product-2.jpg", "product-3.jpg", "service-1.jpg", "about.jpg"]
+                    : ["favicon.png", "logo.png", "hero.jpg", "project-1.jpg", "project-2.jpg", "project-3.jpg", "about.jpg", "contact.jpg"];
                 
                 detail_project.sumber_gambar = {
                     mode: "folder",
